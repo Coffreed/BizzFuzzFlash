@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>BizzFuzzFlash</title>
+  </head>
+  <body>
+    <h1>5 = Bizz, 3 = Fuzz, Both = Flash</h1>
+    <button onclick="clickevent()">Generate</button>
+    <button onclick="window.location='http://localhost:3000/lobby'">Leave</button>
+
+    <p id="randomNumerical1"></p>
+    <p id="randomNumerical2"></p>
+    
+    <img id="bff" src="wait.png" width="107" height="98"></br>
+
+    <script>
+      var parameter1;
+      var parameter2;
+      var randomNumber1;
+      var randomNumber2;
+
+      function clickevent(){
+      randomNumber1 = Math.floor(Math.random() * 10) + 1;
+      randomNumber2 = Math.floor(Math.random() * 10) + 1;
+      parameter1 = document.getElementById("randomNumerical1");
+      parameter2 = document.getElementById("randomNumerical2");
+      parameter1.innerHTML = randomNumber1;
+      parameter2.innerHTML = randomNumber2;
+
+      if(randomNumber1==3 && randomNumber2==5 || randomNumber2==3 && randomNumber1==5 ){
+          document.getElementById("bff").src = "flash.png";
+      }
+      else if(randomNumber1 === 5 || randomNumber2 === 3){
+          document.getElementById("bff").src = "bizz.jpg";
+      }
+      else if(randomNumber1 === 3 || randomNumber2 === 3){
+          document.getElementById("bff").src = "fuzz.png";
+      }
+      else {
+          document.getElementById("bff").src = "wait.png";
+      }
+  }
+  </script>
+  </body>
+</html>
